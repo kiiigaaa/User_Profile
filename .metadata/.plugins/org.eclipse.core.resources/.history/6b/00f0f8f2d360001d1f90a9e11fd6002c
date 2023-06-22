@@ -1,0 +1,32 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
+    <%@page import="java.util.*,com.profile.*" %>
+    
+    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<%  
+// retrieve your list from the request, with casting 
+
+	List<customerProfile> list = (List<customerProfile>)session.getAttribute("cusDetails");
+
+%>
+</head>
+   
+<body>
+	<% 
+	for( customerProfile cus: list){
+		
+		String fname = cus.getFirstName();
+		out.println(fname);
+		String lname = cus.getLastName();
+		
+	}
+	%>
+</body>
+</html>

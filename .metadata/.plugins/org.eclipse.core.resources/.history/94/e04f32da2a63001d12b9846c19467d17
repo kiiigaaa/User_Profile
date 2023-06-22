@@ -1,0 +1,63 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
+<%@page import="java.util.*,com.profile.*" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/profile.css">
+</head>
+<body>
+	<%  
+// retrieve your list from the request, with casting 
+
+	List<customerProfile> list = (List<customerProfile>)session.getAttribute("cusDetails");
+
+%>
+
+	<% 
+		
+	String fname ="";
+	String lname ="";
+	String address ="";
+	String email="";
+	String tel="";
+	String gender="";
+	String un="";
+	
+	for( customerProfile cus: list){
+		
+		fname = cus.getFirstName();
+		lname = cus.getLastName();
+		address = cus.getAddress();
+		email = cus.getEmail();
+		tel = cus.getTelNo();
+		gender = cus.getGender();
+		un = cus.getUserName(); 
+		
+		
+	}
+	%>
+
+
+	<form action="update" method = "post">
+	
+		First Name: <input type="text" name="fname" value="<%=fname %>" >
+		Last Name: <input type="text" name="lname" value="<%=lname %>" >
+		Address: <input type="text" name="address" value="<%=address %>">
+		E-mail: <input type="email" name="email" value="<%=email %>">
+		Telephone: <input type="text" name="tel" value="<%=tel %>">
+		Gender: <input type="text" name="gender" value="<%=gender %>">
+		
+		User Name: <input type="text" name="un" >
+		Password: <input type="password" name="password" >
+		
+		<br><input type="submit" name="submit" value = "Update">
+		
+	
+	</form>
+
+</body>
+</html>

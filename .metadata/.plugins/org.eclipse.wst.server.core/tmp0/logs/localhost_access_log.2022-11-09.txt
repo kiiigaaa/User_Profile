@@ -1,0 +1,11 @@
+127.0.0.1 - - [09/Nov/2022:11:18:06 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [09/Nov/2022:11:18:07 +0530] "GET /GroceryOrdering/WEB-INF/login.jsp HTTP/1.1" 404 682
+0:0:0:0:0:0:0:1 - - [09/Nov/2022:11:18:07 +0530] "GET /favicon.ico HTTP/1.1" 404 762
+127.0.0.1 - - [09/Nov/2022:11:43:38 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [09/Nov/2022:11:43:39 +0530] "GET /GroceryOrdering/WEB-INF/login.jsp HTTP/1.1" 404 682
+0:0:0:0:0:0:0:1 - - [09/Nov/2022:11:53:38 +0530] "GET /GroceryOrdering/WEB-INF/login.jsp HTTP/1.1" 404 682
+127.0.0.1 - - [09/Nov/2022:14:14:41 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [09/Nov/2022:14:14:42 +0530] "GET /GroceryOrdering/WEB-INF/login.jsp HTTP/1.1" 404 682
+127.0.0.1 - - [09/Nov/2022:14:15:37 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [09/Nov/2022:14:15:40 +0530] "GET /GroceryOrdering/login.jsp HTTP/1.1" 200 331
+0:0:0:0:0:0:0:1 - - [09/Nov/2022:14:19:04 +0530] "GET /GroceryOrdering/userProfile.jsp HTTP/1.1" 200 142

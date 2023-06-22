@@ -1,0 +1,51 @@
+package test;
+
+
+import java.sql.*;
+import java.util.ArrayList;
+
+
+public class test {
+
+	public static void main(String[] args) {
+		ArrayList<customerProfile> cus = new ArrayList<>();
+		
+		//validate
+		try {
+			Connection	con = Conn.getConnection();
+			Statement stmt = con.createStatement();
+			
+			String userName = "kiga";
+			String password = "123";
+			
+			String sql = "select * from customer where userName'"+userName+"' and password '"+password+"'";
+			
+			ResultSet rs = stmt.executeQuery(sql);
+			
+			if(rs.next()) {
+				int id = rs.getInt(1);
+				String firstName = rs.getString(2);
+				String lastName = rs.getString(3);
+				String address = rs.getString(4);
+				String email = rs.getString(5);
+				String telNo = rs.getString(6);
+				String gender = rs.getString(7);
+				String un = rs.getString(8);
+				String pass = rs.getString(9);
+				
+				customerProfile c = new customerProfile(id,firstName,lastName,address,email,telNo,gender,un,pass);
+				
+				cus.add(c);
+			}
+			
+			
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+		
+		System.out.print(cus);
+		
+
+	}
+
+}

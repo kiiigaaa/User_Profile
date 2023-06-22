@@ -1,0 +1,76 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
+    <%@page import="java.util.*,com.profile.*" %>
+    
+    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<%  
+// retrieve your list from the request, with casting 
+
+	List<customerProfile> list = (List<customerProfile>)session.getAttribute("cusDetails");
+
+%>
+</head>
+   
+<body>
+	<% 
+		
+	String fname ="";
+	String lname ="";
+	String address ="";
+	String email="";
+	String tel="";
+	String gender="";
+	String un="";
+	
+	for( customerProfile cus: list){
+		
+		fname = cus.getFirstName();
+		lname = cus.getLastName();
+		address = cus.getAddress();
+		email = cus.getEmail();
+		tel = cus.getTelNo();
+		gender = cus.getGender();
+		un = cus.getUserName(); 
+		
+		
+	}
+	%>
+	<table border= 1>
+	<tr>
+	
+		<td>First Name: </td>
+		<td><% out.println(fname);%></td>
+	</tr>
+	<tr>
+		<td>Last Name: </td>
+		<td><%out.println(lname); %></td>
+	</tr>
+	<tr>
+		<td>Address: </td>
+		<td><%out.println(address); %></td>
+	</tr>
+	<tr>
+		<td>E-mail: </td>
+		<td><%out.println(email); %></td>
+	</tr>
+	<tr>
+		<td>Telephone: </td>
+		<td><%out.println(tel);%></td>
+	<tr>
+		<td>Gender: </td>
+		<td><%out.println(gender); %></td>
+	</tr>
+	
+	</table>
+	
+	<br> <a href="insertpay.jsp"> Add payment method </a>
+	
+</body>
+</html>

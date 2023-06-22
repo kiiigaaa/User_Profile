@@ -1,0 +1,100 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
+    <%@page import="java.util.*,com.profile.*" %>
+    
+    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Profile</title>
+ <link rel="stylesheet" type="text/css" href="css/profile.css">
+
+<%  
+// retrieve your list from the request, with casting 
+
+	List<customerProfile> list = (List<customerProfile>)session.getAttribute("cusDetails");
+
+%>
+</head>
+   
+<body>
+	<section class="navsection">
+ 	<header>
+        <div class="wrapper"> 
+        <div class="logo">
+          <a href="#">
+          <img src="images/logo.jpg" alt="logo" >
+          </a>
+            </div>
+         <nav>
+          <a href="index.php">Home</a>
+          <a href="services.php">Category</a>
+          <a href="vehicle-index.php"></a>
+          <a href="aboutus.php">About</a>
+          <a href="contactus.php">Contact</a>
+          <a href="inquery.php">Inquiries</a>
+          <a href="register.php"  >Profile</a>
+         </nav>
+        </div>
+    </header>
+</section>
+	<% 
+		
+	String fname ="";
+	String lname ="";
+	String address ="";
+	String email="";
+	String tel="";
+	String gender="";
+	String un="";
+	
+	for( customerProfile cus: list){
+		
+		fname = cus.getFirstName();
+		lname = cus.getLastName();
+		address = cus.getAddress();
+		email = cus.getEmail();
+		tel = cus.getTelNo();
+		gender = cus.getGender();
+		un = cus.getUserName(); 
+		
+		
+	}
+	%>
+	<div class="info">
+	<table >
+	<tr>
+	
+		<td>First Name: </td>
+		<td><% out.println(fname);%></td>
+	</tr>
+	<tr>
+		<td>Last Name: </td>
+		<td><%out.println(lname); %></td>
+	</tr>
+	<tr>
+		<td>Address: </td>
+		<td><%out.println(address); %></td>
+	</tr>
+	<tr>
+		<td>E-mail: </td>
+		<td><%out.println(email); %></td>
+	</tr>
+	<tr>
+		<td>Telephone: </td>
+		<td><%out.println(tel);%></td>
+	<tr>
+		<td>Gender: </td>
+		<td><%out.println(gender); %></td>
+	</tr>
+	
+	</table>
+	</div>
+	<a href="upUpdate.jsp"><input type = "buttom" name="pay" class="up-btn"  value ="Update Profile" ></a><br>
+	<a href="insertPay.jsp"> <input type="button" name="pay" class="pay-btn" value="Add payment method "></a>
+	
+	
+</body>
+</html>

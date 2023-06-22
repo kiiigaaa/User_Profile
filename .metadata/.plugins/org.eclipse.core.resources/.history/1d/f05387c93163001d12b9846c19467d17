@@ -1,0 +1,64 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<%@page import="java.sql.DriverManager"%>
+	<%@page import="java.sql.ResultSet"%>
+	<%@page import="java.sql.Statement"%>
+	<%@page import="java.sql.Connection"%>
+	
+	<% String id = request.getParameter("userid");
+	String driver = "com.mysql.jdbc.Driver";
+	String connectionUrl = "jdbc:mysql://localhost:3306/";
+	String database = "online_grocery_ordering_system";
+	String userid = "root";
+	String password = "kishen00!!!";
+	try {
+	Class.forName(driver);
+	} catch (ClassNotFoundException e) {
+	e.printStackTrace();
+	}
+	Connection connection = null;
+	Statement statement = null;
+	ResultSet resultSet = null;
+%>
+	<div class="info">
+	<form action="delete" method="post">
+	<table border="1">
+	<tr>
+	<td>Card Number</td>
+	<td>Card Type</td>
+
+	</tr>
+	
+	<%
+	try{
+		connection = DriverManager.getConnection(connectionUrl+database, userid, password);
+		statement=connection.createStatement();
+		String sql ="select * from paymentmethod";
+		resultSet = statement.executeQuery(sql);
+		while(resultSet.next()){
+		%>
+		<tr>
+		<td><%=resultSet.getString("cardNo") %></td>
+		<td><%=resultSet.getString("cardType") %></td>
+		<% String no = resultSet.getString("cardNo"); %>
+		<td><input type="hidden" name="delete2" value="<%=resultSet.getString("cardNo")%>"> 
+		<input type="submit" name="delete" value="Delete"></td>
+		</tr>
+	<% 
+	}
+	} catch (Exception e) {
+	e.printStackTrace();
+	}
+	%>
+	</form>
+	</table>
+	</div>
+</body>
+</html>

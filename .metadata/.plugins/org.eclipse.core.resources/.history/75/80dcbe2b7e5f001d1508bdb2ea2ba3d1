@@ -1,0 +1,6 @@
+package com.profile;
+
+public class CustomerDBUtil {
+	
+	public static List<Customer> validate(String user)
+}

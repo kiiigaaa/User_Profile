@@ -1,0 +1,49 @@
+package com.profile;
+
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+
+@WebServlet("/loginServlet")
+public class loginServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    
+    public loginServlet() {
+        super();
+        
+    }
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String username = request.getParameter("uname");
+		String password = request.getParameter("pw");
+		
+		List cusDetails = CustomerDBUtil.details(username, password);
+		
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("un", username);
+		session.setAttribute("pw", password);
+		
+		session.setAttribute("cusDetails", cusDetails);
+		
+		RequestDispatcher dis = request.getRequestDispatcher("dashboard.jsp");
+		dis.forward(request, response);
+	}
+
+}

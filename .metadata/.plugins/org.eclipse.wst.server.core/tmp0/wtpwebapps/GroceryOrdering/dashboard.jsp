@@ -1,0 +1,34 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>dashboard</title>
+<link rel="stylesheet" type="text/css" href="css/profile.css">
+
+</head>
+<body>
+<section class="navsection">
+ 	<header>
+        <div class="wrapper"> 
+        <div class="logo">
+          <a href="#">
+          <img src="images/logo.jpg" alt="logo" >
+          </a>
+            </div>
+         <nav>
+          <a href="dashboard.jsp">Home</a>
+          <a href="services.php">Category</a>
+          <a href="vehicle-index.php"></a>
+          <a href="aboutus.php">About</a>
+          <a href="contactus.php">Contact</a>
+          <a href="inquery.php">Inquiries</a>
+          <a href="userProfile.jsp"  >Profile</a>
+         </nav>
+        </div>
+    </header>
+</section>
+
+</body>
+</html>

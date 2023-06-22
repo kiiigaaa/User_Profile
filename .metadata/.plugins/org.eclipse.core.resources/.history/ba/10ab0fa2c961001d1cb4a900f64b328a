@@ -1,0 +1,29 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<form action="update" method = "post">
+	
+		First Name: <input type="text" name="fname" >
+		Last Name: <input type="text" name="lname" >
+		Address: <input type="text" name="address" >
+		E-mail: <input type="email" name="email" >
+		Telephone: <input type="text" name="tel" >
+		Gender: <input type="text" name="gender" >
+		
+		User Name: <input type="text" name="un" >
+		Password: <input type="password" name="password" >
+		
+		<br><input type="submit" name="submit" value = "update">
+		
+	
+	</form>
+
+</body>
+</html>
